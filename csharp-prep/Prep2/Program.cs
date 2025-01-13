@@ -11,7 +11,7 @@ class Program
         string letter = "";
 
         if (grade_percent >= 90)
-        { letter = "B"; }
+        { letter = "A"; }
 
         else if (grade_percent >= 80)
         { letter = "B"; }
