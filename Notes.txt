@@ -23,3 +23,5 @@
 
     - git push
         the command that uploads the actually file to get hub -->
+
+    - avoid using the term var at all cost, when asking chatgbt as it to not include var so you can understand the code
