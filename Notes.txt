@@ -27,3 +27,36 @@
     - avoid using the term var at all cost, when asking chatgbt as it to not include var so you can understand the code
 
     - when using AI to help refine your code be carful and wacth our for the diffrence between atributes (_all lowercase) and methods (Start upercases)
+
+
+- 2/26/2025
+ diffrences between private and protected. 
+PRIVATE: Only the class itself can access the member, so subclass can access it
+    
+Example:
+class Activity
+{
+    private int _duration; // Only accessible inside Activity class
+}
+
+class BreathingActivity : Activity
+{
+    public void DoSomething()
+    {
+        _duration = 10; // ❌ ERROR: Cannot access a private field from a derived class
+    }
+}
+     
+PROTECTED: allows subclasses to access the member
+class Activity
+{
+    protected int _duration; // Accessible in Activity AND its subclasses
+}
+
+class BreathingActivity : Activity
+{
+    public void DoSomething()
+    {
+        _duration = 10; // ✅ Allowed because _duration is protected
+    }
+}
