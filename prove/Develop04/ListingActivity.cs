@@ -13,6 +13,8 @@ class ListingActivity : Activity
         "Who are some of your personal heroes?"
     };
 
+    private Animation _animation = new Animation();
+
     public ListingActivity() : base("Listing Activity",
         "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.")
     {
@@ -26,7 +28,7 @@ class ListingActivity : Activity
         string selectedPrompt = _prompts[random.Next(_prompts.Count)];
         Console.WriteLine($"\n{selectedPrompt}");
         Console.WriteLine("\nYou will have some time to think before listing...");
-        ShowSpinner(5);
+        _animation.ShowSpinner(5); 
 
         Console.WriteLine("\nStart listing items. Press Enter after each item:");
 

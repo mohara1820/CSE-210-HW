@@ -1,21 +1,22 @@
-List<string> animation = new List<string>();
-        animation.Add("|");
-        animation.Add("/");
-        animation.Add("-");
-        animation.Add("\\");
-        DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(30);
+using System;
+using System.Collections.Generic;
+using System.Threading;
+
+class Animation
+{
+    public void ShowSpinner(int duration)
+    {
+        List<string> animation = new List<string> { "|", "/", "-", "\\" };
+        DateTime endTime = DateTime.Now.AddSeconds(duration);
         int i = 0;
+
         while (DateTime.Now < endTime)
         {
-            string frame = animation[i];
-            Console.Write(frame);
+            Console.Write(animation[i]);
             Thread.Sleep(500);
-            Console.Write("\b \b");
+            Console.Write("\b \b"); // Erase the previous character
 
-            i++;
-
-            if (i >= animation.Count){
-                i = 0;
-            }
+            i = (i + 1) % animation.Count; // Loop back to the first frame
         }
+    }
+}

@@ -1,14 +1,14 @@
 using System;
 using System.Threading;
-using System.Xml.Serialization;
 
 class Activity
 {
     private string _name;
     private string _description;
     protected int _duration;
+    private Animation _animation = new Animation();
 
-    public Activity (string name, string description)
+    public Activity(string name, string description)
     {
         _name = name;
         _description = description;
@@ -27,24 +27,14 @@ class Activity
         }
 
         Console.WriteLine("\nGet ready...");
-        ShowSpinner(3);
+        _animation.ShowSpinner(3); 
     }
 
     public void DisplayEndMessage()
     {
-        Console.WriteLine("\nGreat Job! you have compleated the activity.");
+        Console.WriteLine("\nGreat job! You have completed the activity.");
         Console.WriteLine($"You spent {_duration} seconds on {_name}.");
-        ShowSpinner(3);
-    }
-
-    protected void ShowSpinner(int seconds)
-    {
-        for (int i =0; i < seconds; i++)
-        {
-            Console.Write(".");
-            Thread.Sleep(1000);
-        }
-        Console.WriteLine();
+        _animation.ShowSpinner(3); 
     }
 
     public virtual void RunActivity()
