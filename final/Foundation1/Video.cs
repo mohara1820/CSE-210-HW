@@ -8,7 +8,7 @@ public class Video
 {
     public string Title { get; set; }
     public string Author { get; set; }
-    public int LenghtInSeconds {get; set; }
+    public int LengthInSeconds {get; set; }
     private List<Comment> _comments;
 
 
@@ -16,7 +16,7 @@ public class Video
     {
         Title = title;
         Author = author;
-        LenghtInSeconds = lenghtInSeconds;
+        LengthInSeconds = lenghtInSeconds;
         _comments = new List<Comment>();
     }
 
@@ -30,7 +30,7 @@ public class Video
         return _comments.Count;
     }
 
-    public List<Comment> GetComment()
+    public List<Comment> GetComments()
     {
         return _comments;
     }
